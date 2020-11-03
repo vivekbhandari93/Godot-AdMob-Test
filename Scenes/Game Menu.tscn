@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/PWHappyChristmas.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Game Menu.gd" type="Script" id=2]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 1
+outline_color = Color( 0.776471, 0.439216, 0.439216, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Game Menu" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 300.0
+margin_top = 1.68176
+margin_right = 739.0
+margin_bottom = 68.6818
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "Game Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Banner Button" type="Button" parent="."]
+margin_left = 300.0
+margin_top = 91.0665
+margin_right = 739.0
+margin_bottom = 158.066
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "Banner Ads"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interstitial Button" type="Button" parent="."]
+margin_left = 300.0
+margin_top = 169.75
+margin_right = 739.0
+margin_bottom = 236.75
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "Interstitial Ads"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rewarded Video Button" type="Button" parent="."]
+margin_left = 300.0
+margin_top = 243.5
+margin_right = 739.0
+margin_bottom = 310.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "Rewarded Video"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 3 )
+banner_id = "ca-app-pub-3940256099942544/6300978111"
+interstitial_id = "ca-app-pub-3940256099942544/1033173712"
+rewarded_id = "ca-app-pub-3940256099942544/5224354917"
+is_personalized = false
+[connection signal="pressed" from="Banner Button" to="." method="_on_Banner_Button_pressed"]
+[connection signal="pressed" from="Interstitial Button" to="." method="_on_Interstitial_Button_pressed"]
+[connection signal="pressed" from="Rewarded Video Button" to="." method="_on_Rewarded_Video_Button_pressed"]
